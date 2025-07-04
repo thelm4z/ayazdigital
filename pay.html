@@ -25,20 +25,20 @@
     </div>
 
     <script>
-        const btcImage = document.getElementById('btc-image');
-        const binanceButton = document.getElementById('binanceButton');
-        const container = document.getElementById('container');
+    const btcImage = document.getElementById('btc-image');
+    const binanceButton = document.getElementById('binanceButton');
+    const container = document.getElementById('container');
 
-        binanceButton.addEventListener('click', function(event) {
-            event.stopPropagation();
-            btcImage.style.display = 'block';
-        });
+    binanceButton.addEventListener('click', function(event) {
+        event.stopPropagation();
+        btcImage.style.display = 'block';
+    });
 
-        document.addEventListener('click', function(event) {
-            if (!container.contains(event.target)) {
-                btcImage.style.display = 'none';
-            }
-        });
+    document.addEventListener('click', function(event) {
+        if (!container.contains(event.target)) {
+            btcImage.style.display = 'none';
+        }
+    });
     </script>
 </body>
 </html>
