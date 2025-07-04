@@ -1,87 +1,44 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="tr">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ayaz Digital - Kişisel Web Sitesi</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödeme Sayfası - Ayaz Digital</title>
     <style>
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f9f9f9;
-            color: #333;
-            line-height: 1.6;
-        }
-        header {
-            background: linear-gradient(135deg, #000000, #15aabf);
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-        }
-        header p {
-            font-size: 1.2rem;
-        }
-        section {
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        section h2 {
-            color: #000000;
-            border-bottom: 2px solid #4c6ef5;
-            padding-bottom: 5px;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #eee;
-        }
-        .project {
-            background: white;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 8px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-        }
+        body { font-family: sans-serif; background: #f8f9fa; padding: 20px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+        h1 { color: #000000; text-align: center; }
+        p { text-align: center; }
+        .pay-button { display: block; width: 100%; padding: 12px; background: #070707; color: white; text-decoration: none; text-align: center; border-radius: 6px; font-weight: bold; margin-top: 20px; cursor: pointer; }
+        .pay-button:hover { background: #000000; }
+        #btc-image { display: none; margin-top: 20px; max-width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.2); }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Ayaz Digital</h1>
-        <p>Bilgisayar Mühendisi • Develepor • Hacker </p>
-    </header>
+    <div class="container" id="container">
+        <h1>Ödeme Sayfası</h1>
+        <p>Hizmet veya destek ödemelerinizi güvenli bir şekilde gerçekleştirmek için aşağıdaki seçeneklerden birini kullanabilirsiniz.</p>
+        <a href="mailto:tthelm4z@gmail.com?subject=IBAN%20paylaşır%20mısınız" class="pay-button">Mail üzerinden iban ile Ödeme Yap</a>
+        <a href="#" id="binanceButton" class="pay-button">BitCoin ile Ödeme Yap</a>
+        <img id="btc-image" src="btcqr.png" alt="Bitcoin QR Kod">
+        <p>Ödeme sonrası dekontu mail üzerinden iletebilirsiniz.</p>
+    </div>
 
-    <section>
-        <h2>Hakkımda</h2>
-        <p>Web teknolojileri ve siber güvenlik tutkunu bir bilgisayar mühendisiyim. Modern, hızlı ve güvenli sistemler kurmak benim işim. İnterneti daha güvenli ve erişilebilir kılmak için buradayım.</p>
-    </section>
+    <script>
+        const btcImage = document.getElementById('btc-image');
+        const binanceButton = document.getElementById('binanceButton');
+        const container = document.getElementById('container');
 
-    <section>
-        <h2>Projeler</h2>
-        <div class="project">
-            <h3>Hastaş Mekanik İnşaat Firması Web Sitesi </h3>
-            <p>Bu projede yaptıklarımın kısa açıklaması ve proje linki.</p>
-            <a href="https://www.hastasmekanik.com/" target="_blank" >Projeyi Gör</a>
-        </div>
-        <div class="project">
-            <h3>Daha fazla proje görmek için bağışta bulunun.</h3>
-            <p>Bağış yapmak için alttaki adımları izleyin.</p>
-            <a href="file:///C:/Users/thelm/OneDrive/Masa%C3%BCst%C3%BC/wbst/pay.html" target="_blank">Ödeme Yap</a>
-        </div>
-    </section>
+        binanceButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            btcImage.style.display = 'block';
+        });
 
-    <section>
-        <h2>İletişim</h2>
-        <p>Benimle iletişime geçmek için <a href="mailto:mailadresiniz@example.com">tthelm4z@gmail.com</a> adresine mail gönderebilirsiniz.</p>
-    </section>
-
-    <footer>
-        © 2020 Thelm4z. Tüm hakları saklıdır.
-    </footer>
+        document.addEventListener('click', function(event) {
+            if (!container.contains(event.target)) {
+                btcImage.style.display = 'none';
+            }
+        });
+    </script>
 </body>
 </html>
