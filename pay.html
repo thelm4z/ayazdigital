@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ödeme Sayfası - Ayaz Digital</title>
+    <style>
+        body { font-family: sans-serif; background: #f8f9fa; padding: 20px; }
+        .container { max-width: 500px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); position: relative; }
+        h1 { color: #000000; text-align: center; }
+        p { text-align: center; }
+        .pay-button { display: block; width: 100%; padding: 12px; background: #070707; color: white; text-decoration: none; text-align: center; border-radius: 6px; font-weight: bold; margin-top: 20px; cursor: pointer; }
+        .pay-button:hover { background: #000000; }
+        #btc-image { display: none; margin-top: 20px; max-width: 100%; border-radius: 8px; box-shadow: 0 0 8px rgba(0,0,0,0.2); }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <h1>Ödeme Sayfası</h1>
+        <p>Hizmet veya destek ödemelerinizi güvenli bir şekilde gerçekleştirmek için aşağıdaki seçeneklerden birini kullanabilirsiniz.</p>
+        <a href="mailto:tthelm4z@gmail.com?subject=IBAN%20paylaşır%20mısınız" class="pay-button">Mail üzerinden iban ile Ödeme Yap</a>
+        <a href="#" id="binanceButton" class="pay-button">BitCoin ile Ödeme Yap</a>
+        <img id="btc-image" src="btcqr.png" alt="Bitcoin QR Kod">
+        <p>Ödeme sonrası dekontu mail üzerinden iletebilirsiniz.</p>
+    </div>
+
+    <script>
+        const btcImage = document.getElementById('btc-image');
+        const binanceButton = document.getElementById('binanceButton');
+        const container = document.getElementById('container');
+
+        binanceButton.addEventListener('click', function(event) {
+            event.stopPropagation();
+            btcImage.style.display = 'block';
+        });
+
+        document.addEventListener('click', function(event) {
+            if (!container.contains(event.target)) {
+                btcImage.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
